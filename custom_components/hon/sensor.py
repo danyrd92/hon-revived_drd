@@ -522,30 +522,6 @@ SENSORS: dict[str, tuple[SensorEntityDescription, ...]] = {
             native_unit_of_measurement="Hz",
             entity_registry_enabled_default=False,
         ),
-        HonSensorEntityDescription(
-            key="humidityIndoor",
-            name="Humidity Indoor",
-            icon="mdi:water-percent",
-            device_class=SensorDeviceClass.HUMIDITY,
-            native_unit_of_measurement="%",
-            entity_registry_enabled_default=False,
-        ),
-        HonSensorEntityDescription(
-            key="power",
-            name="Power",
-            icon="mdi:lightning-bolt",
-            device_class=SensorDeviceClass.POWER,
-            native_unit_of_measurement="W",
-            entity_registry_enabled_default=False,
-        ),
-        HonSensorEntityDescription(
-            key="compressorCurrent",
-            name="Compressor Current",
-            icon="mdi:current-ac",
-            device_class=SensorDeviceClass.CURRENT,
-            native_unit_of_measurement="A",
-            entity_registry_enabled_default=False,
-        ),
     ),
     "REF": (
         HonSensorEntityDescription(
