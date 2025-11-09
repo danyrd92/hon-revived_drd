@@ -2,11 +2,10 @@
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://hacs.xyz)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/mmalolepszy/hon-revived?color=green)](https://github.com/mmalolepszy/hon-revived/releases/latest)
-
-<!--
-[![GitHub all releases](https://img.shields.io/github/downloads/mmalolepszy/hon-revived/latest/total?color=blue&label=downloads)](https://tooomm.github.io/github-release-stats/?username=mmalolepszy&repository=hon-revived)
+[![GitHub latest release](https://img.shields.io/github/downloads/mmalolepszy/hon-revived/latest/total?color=blue&label=downloads)](https://tooomm.github.io/github-release-stats/?username=mmalolepszy&repository=hon-revived)
 [![GitHub all releases](https://img.shields.io/github/downloads/mmalolepszy/hon-revived/total?color=blue&label=total%20downloads)](https://tooomm.github.io/github-release-stats/?username=mmalolepszy&repository=hon-revived)
--->
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-donate-orange.svg)](https://www.buymeacoffee.com/mmalolepszy)
+
 ---
 
 Home Assistant integration for [Haier's mobile app hOn](https://hon-smarthome.com/). 
@@ -771,7 +770,7 @@ Translation of internal names like programs are available for all languages whic
 * 🇺🇦 Ukrainian
 
 ## Compatibility
-Haier offers different apps for different markets. Some appliances are compatible with more than one app. This integration only supports appliances that can be controlled via hOn. Please download the hOn app and check compatibility before you open an issue.   
+Haier offers different apps for different markets. Some appliances are compatible with more than one app. This integration only supports appliances that can be controlled via hOn. Please download the hOn app and check compatibility before you open an issue. 
 The apps on this (incomplete) list have been requested so far:
 
 | App             | Main Market   | Supported                               | Alternative                                                                     |
@@ -783,5 +782,24 @@ The apps on this (incomplete) list have been requested so far:
 | Haier U+        | China         | :x:                                     |                                                                                 |
 | GE SmartHQ      | North America | :x:                                     | [simbaja/ha_gehome](https://github.com/simbaja/ha_gehome)                       |   
 | Haier Evo       | Russia        | :x:                                     |                                                                                 |
+
+## Contribute
+Want to help us to support more appliances? Or add more sensors? Or help with translating? Or beautify some icons or captions? 
+Check out the [project on GitHub](https://github.com/mmalolepszy/hon-revived), every contribution is welcome!
+
+| Please add your appliances data to our [hon-test-data collection](https://github.com/mmalolepszy/hon-test-data). <br/>This helps us to develop new features and not to break compatibility in newer versions. |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+## Useful Links
+* [GitHub repository](https://github.com/mmalolepszy/hon-revived)
+* [pyhOn library](https://github.com/mmalolepszy/pyhOn)
+* [Release notes](https://github.com/mmalolepszy/hon-revived/releases)
+* [Discussion and help](https://github.com/mmalolepszy/hon-revived/discussions)
+* [Issues](https://github.com/mmalolepszy/hon-revived/issues)
+
+## Support
+If you find this project helpful and would like to support its development, you can buy me a coffee! ☕
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/mmalolepszy)
 
 Don't forget to star the repository if you found it useful! ⭐
