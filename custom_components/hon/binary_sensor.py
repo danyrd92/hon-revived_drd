@@ -330,8 +330,8 @@ async def async_setup_entry(
     entities = []
     for device in hass.data[DOMAIN][entry.unique_id]["hon"].appliances:
         for description in BINARY_SENSORS.get(device.appliance_type, []):
-            if device.get(description.key) is None:
-                continue
+            #if device.get(description.key) is None:
+                #continue
             entity = HonBinarySensorEntity(hass, entry, device, description)
             entities.append(entity)
     async_add_entities(entities)
