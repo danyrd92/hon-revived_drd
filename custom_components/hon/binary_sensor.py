@@ -124,7 +124,7 @@ BINARY_SENSORS: dict[str, tuple[HonBinarySensorEntityDescription, ...]] = {
             translation_key="on",
         ),
         HonBinarySensorEntityDescription(
-            key="attributes.parameters.preheatStatus",
+            key="attributes.activity.attributes.preheatStatus",
             name="Pre-Heat",
             device_class=BinarySensorDeviceClass.RUNNING,
             on_value=1,
