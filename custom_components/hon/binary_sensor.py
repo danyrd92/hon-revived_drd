@@ -127,7 +127,7 @@ BINARY_SENSORS: dict[str, tuple[HonBinarySensorEntityDescription, ...]] = {
             key="attributes.parameters.preheatStatus",
             name="Pre-Heat",
             device_class=BinarySensorDeviceClass.RUNNING,
-            on_value="1",
+            on_value=1,
             icon="mdi:thermometer-chevron-up",
             translation_key="pre_heat",
         ),
