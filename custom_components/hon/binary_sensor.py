@@ -342,7 +342,8 @@ class HonBinarySensorEntity(HonEntity, BinarySensorEntity):
 
     @property
     def is_on(self) -> bool:
-        value = self._device.get(self.entity_description.key, "")
+        attr = self._device.get(self.entity_description.key, None)
+        value = attr.value if hasattr(attr, "value") else attr
         result = value == self.entity_description.on_value
 
         # DEBUG SOLO PARA EL PREHEAT
@@ -358,11 +359,12 @@ class HonBinarySensorEntity(HonEntity, BinarySensorEntity):
             )
 
         return result
+
     @callback
     def _handle_coordinator_update(self, update: bool = True) -> None:
-        self._attr_native_value = (
-            self._device.get(self.entity_description.key, "")
-            == self.entity_description.on_value
-        )
+        attr = self._device.get(self.entity_description.key, None)
+        value = attr.value if hasattr(attr, "value") else attr
+
+        self._attr_native_value = (value == self.entity_description.on_value)
         if update:
             self.schedule_update_ha_state()
