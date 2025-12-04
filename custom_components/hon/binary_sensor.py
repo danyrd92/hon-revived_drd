@@ -123,6 +123,14 @@ BINARY_SENSORS: dict[str, tuple[HonBinarySensorEntityDescription, ...]] = {
             icon="mdi:power-cycle",
             translation_key="on",
         ),
+        HonBinarySensorEntityDescription(
+            key="attributes.parameters.preheatStatus",
+            name="Pre-Heat",
+            device_class=BinarySensorDeviceClass.RUNNING,
+            on_value=1,
+            icon="mdi:thermometer-chevron-up",
+            translation_key="pre_heat",
+        ),
     ),
     "IH": (
         HonBinarySensorEntityDescription(
@@ -245,8 +253,8 @@ BINARY_SENSORS: dict[str, tuple[HonBinarySensorEntityDescription, ...]] = {
         HonBinarySensorEntityDescription(
             key="doorStatusZ2",
             name="Door1 Status Freezer",
-            icon="mdi:fridge-bottom",
             device_class=BinarySensorDeviceClass.DOOR,
+            icon="mdi:fridge-bottom",
             on_value=1,
             translation_key="freezer_door",
         ),
@@ -334,16 +342,15 @@ class HonBinarySensorEntity(HonEntity, BinarySensorEntity):
 
     @property
     def is_on(self) -> bool:
-        return bool(
-            self._device.get(self.entity_description.key, "")
-            == self.entity_description.on_value
-        )
+        attr = self._device.get(self.entity_description.key, None)
+        value = attr.value if hasattr(attr, "value") else attr
+        return value == self.entity_description.on_value
 
     @callback
     def _handle_coordinator_update(self, update: bool = True) -> None:
-        self._attr_native_value = (
-            self._device.get(self.entity_description.key, "")
-            == self.entity_description.on_value
-        )
+        attr = self._device.get(self.entity_description.key, None)
+        value = attr.value if hasattr(attr, "value") else attr
+        self._attr_native_value = (value == self.entity_description.on_value)
         if update:
             self.schedule_update_ha_state()
+
