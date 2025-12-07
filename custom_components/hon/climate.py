@@ -193,22 +193,10 @@ class HonACClimateEntity(HonEntity, ClimateEntity):
         on_off = self._device.get("onOffStatus")
         mach = self._device.get("machMode")
 
-        _LOGGER.debug(
-            "HonACClimateEntity hvac_mode: onOffStatus=%r, machMode=%r, last_hvac_mode=%r",
-            on_off,
-            mach,
-            getattr(self, "_attr_hvac_mode", None),
-        )
-
         if on_off == 0:
             return HVACMode.OFF
 
         if mach not in HON_HVAC_MODE:
-            _LOGGER.debug(
-                "HonACClimateEntity hvac_mode: machMode %r not in HON_HVAC_MODE, keeping last_hvac_mode=%r",
-                mach,
-                getattr(self, "_attr_hvac_mode", HVACMode.AUTO),
-            )
             return getattr(self, "_attr_hvac_mode", HVACMode.AUTO)
 
         mode = HON_HVAC_MODE[mach]
@@ -218,14 +206,9 @@ class HonACClimateEntity(HonEntity, ClimateEntity):
             HVACMode.OFF,
             HVACMode.AUTO,
         ):
-            _LOGGER.debug(
-                "HonACClimateEntity hvac_mode: ignoring AUTO from machMode, keeping previous mode %r",
-                self._attr_hvac_mode,
-            )
             return self._attr_hvac_mode
 
         return mode
-
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         self._attr_hvac_mode = hvac_mode
         if hvac_mode == HVACMode.OFF:
@@ -455,4 +438,3 @@ class HonClimateEntity(HonEntity, ClimateEntity):
     def _handle_coordinator_update(self, update: bool = True) -> None:
         if update:
             self.schedule_update_ha_state()
-
